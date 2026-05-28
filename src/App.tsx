@@ -155,21 +155,23 @@ function App() {
 
       <div className="sticky top-[96px] z-20 bg-white shadow-md border-b-2 border-blue-100">
         <div className="container mx-auto px-4 py-3">
-          <div className="flex gap-2 justify-center overflow-x-auto scrollbar-hide py-1">
-            {dias.map((dia) => (
-              <button
-                key={dia.key}
-                type="button"
-                onClick={() => setSelectedDay(dia.key)}
-                className={`min-w-[4.5rem] px-5 py-3 rounded-2xl font-semibold transition-all duration-200 ${
-                  selectedDay === dia.key
-                    ? 'bg-blue-800 text-white shadow-md'
-                    : 'bg-gray-100 text-gray-700 hover:bg-blue-100'
-                }`}
-              >
-                {dia.label}
-              </button>
-            ))}
+          <div className="overflow-x-auto scrollbar-hide py-1" style={{ WebkitOverflowScrolling: 'touch', touchAction: 'pan-x' }}>
+            <div className="flex min-w-max justify-center gap-2 px-4">
+              {dias.map((dia) => (
+                <button
+                  key={dia.key}
+                  type="button"
+                  onClick={() => setSelectedDay(dia.key)}
+                  className={`flex-shrink-0 min-w-[4.5rem] px-5 py-3 rounded-2xl font-semibold transition-all duration-200 ${
+                    selectedDay === dia.key
+                      ? 'bg-blue-800 text-white shadow-md'
+                      : 'bg-gray-100 text-gray-700 hover:bg-blue-100'
+                  }`}
+                >
+                  {dia.label}
+                </button>
+              ))}
+            </div>
           </div>
         </div>
       </div>
